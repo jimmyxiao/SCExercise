@@ -1,0 +1,44 @@
+<div class="grid p-fluid">
+    <div class="col-12 md:col-12">
+        <form class="sc-100width" [formGroup]="memberEditForm">
+            <div class="card">
+                <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label>帳號</label>
+                        <input formControlName="account" pInputText id="account" type="text" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label>電子信箱(忘記密碼寄送信箱及發送訊息)</label>
+                        <input formControlName="email" pInputText id="email" type="text" />
+                    </div>
+                    <div class="field col-12 md:col-4" >
+                        <label>密碼</label>
+                        <input formControlName="password" pInputText id="password" type="password" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label>姓名</label>
+                        <input formControlName="userName" pInputText id="userName" type="text" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label>手機號碼(接收系統簡訊)</label>
+                        <input formControlName="phoneNo" pInputText id="phoneNo" type="text" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label>權限</label>
+                        <p-dropdown [options]="roleItems" optionLabel="name" optionValue="role" [showClear]="true" placeholder="請選擇" formControlName="role"></p-dropdown>
+                    </div>
+                    <div class="field col-12 md:col-12">
+                        <label>備註</label>
+                        <textarea id="note" formControlName="note" type="text " rows="4 " pInputTextarea></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="flex flex-wrap gap-2">
+            <button pButton pRipple label="返回"></button>
+            <button pButton pRipple label="取消"></button>
+            <button (click)="saveMember()" pButton pRipple label="儲存"></button>
+        </div>
+
+    </div>
+</div>

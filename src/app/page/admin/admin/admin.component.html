@@ -1,0 +1,47 @@
+<div class="card">
+  <p-table
+    [value]="(adminInfo | async)!"
+    [paginator]="true"
+    [rowsPerPageOptions]="[10, 20, 30]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="顯示 {first} 到 {last} 在第 {totalRecords} 頁"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="account">
+          帳號
+          <p-sortIcon field="account"></p-sortIcon>
+        </th>
+        <th pSortableColumn="name">
+          姓名
+          <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="role">
+          權限
+          <p-sortIcon field="role"> </p-sortIcon>
+        </th>
+        <th pSortableColumn="creationDate">
+          加入時間
+          <p-sortIcon field="creationDate"> </p-sortIcon>
+        </th>
+        <th pSortableColumn="operate">操作</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-adminInfo>
+      <tr>
+        <td style="width: 15%; min-width: 10rem">
+          {{ adminInfo.account }}
+        </td>
+        <td style="width: 30%; min-width: 10rem">
+          {{ adminInfo.name }}
+        </td>
+        <td style="width: 25%; min-width: 10rem">
+          {{ adminInfo.role }}
+        </td>
+        <td style="width: 25%; min-width: 10rem">
+          {{ adminInfo.creationDate | date : "yyyy.MM.dd hh:mm" }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

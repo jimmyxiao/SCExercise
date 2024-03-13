@@ -1,0 +1,22 @@
+<div class="app_dialog">
+
+    <p-dialog [(visible)]="visible" [modal]="true">
+        <ng-template pTemplate="header">
+            <div class="inline-flex align-items-center justify-content-center gap-2">
+                <span class="font-bold white-space-nowrap">{{title}}</span>
+            </div>
+        </ng-template>
+        <p class="m-0">
+            {{text}}
+        </p>
+    
+        <div class="flex align-items-center gap-2">
+    
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)=" closeDialog()" label="Ok" pAutoFocus [autofocus]="true"></p-button>
+            <p-button icon="pi pi-times" (click)="closeDialog()" label="Cancel" pAutoFocus [autofocus]="true"></p-button>
+        </ng-template>
+    </p-dialog>
+
+</div>

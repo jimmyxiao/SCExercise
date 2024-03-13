@@ -1,0 +1,73 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-table #dt [value]="(userInfoList$ | async)!" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['account', 'name']" [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                selectionMode="multiple" [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <span class="block mt-2 md:mt-0 p-inAdminInfot-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input
+                                pInputText
+                                type="text"
+                                (input)="
+                                    dt.filterGlobal(
+                                        $event,
+                                        'contains'
+                                    )
+                                "
+                                placeholder="請輸入帳號、姓名"
+                            />
+                        </span>
+                        <button pButton pRipple label="新增" icon="pi pi-plus" class="p-button-success mr-2 .sc-btn-green" (click)="openNewMember()"></button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="account">
+                            帳號
+                            <p-sortIcon field="account"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="name">
+                            姓名
+                            <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="role">
+                            權限
+                            <p-sortIcon field="role"> </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="creationDate">
+                            加入時間
+                            <p-sortIcon field="creationDate">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="operate">操作</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-userInfo>
+                    <tr>
+                        <td style="width: 15%; min-width: 10rem">
+                            {{ userInfo.account }}
+                        </td>
+                        <td style="width: 30%; min-width: 10rem">
+                            {{ userInfo.name }}
+                        </td>
+                        <td style="width: 25%; min-width: 10rem">
+                            {{ userInfo.role }}
+                        </td>
+                        <td style="width: 25%; min-width: 10rem">
+                            {{ userInfo.creationDate | date: "yyyy.MM.dd hh:mm" }}
+                        </td>
+                        <td style="width: 12%">
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2 krb-btn-circle-edit" style="background-color: #2cd496; border: #2cd496;" (click)="editMember(userInfo.adminId)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+

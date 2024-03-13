@@ -1,0 +1,12 @@
+{
+    "/OfficePieService/app": {
+        "target": "http://localhost:8080",
+        "secure": true,
+        "changeOrigin": true
+    },
+    "/OfficePieService/control": {
+        "target": "http://localhost:8080/",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

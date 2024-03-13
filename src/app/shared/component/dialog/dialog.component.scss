@@ -1,0 +1,15 @@
+::ng-deep .app_dialog {
+    .p-dialog {
+
+        min-width: 300px;
+            /* 你可以根据需要设置具体的最小宽度值 */
+
+        .p-dialog-header-icons {
+            display: none;
+        }
+        
+        .p-dialog-content {
+            white-space: normal;
+        }
+    }
+}

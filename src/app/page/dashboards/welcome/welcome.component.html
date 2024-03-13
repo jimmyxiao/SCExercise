@@ -1,0 +1,10 @@
+<p>welcome officepie</p>
+<div>
+    <a (click)="showNotification()">show Notification</a>
+</div>
+
+<div>
+    <a (click)="openDialog()">show dialog</a>
+</div>
+
+<app-dialog [text]="dialogText" [title]="dialogTitle" [visible]="dialogVisible"  (status)="closeDialog($event)"></app-dialog>
